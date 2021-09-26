@@ -1,0 +1,12 @@
+version: '3'
+
+tasks:
+  graph:
+    desc: Make grapth of dependency modules.
+    cmds:
+      - depm m --dot --dot-config dot-config.toml | dot -Tpng -o ./dependency.png
+    sources:
+      - ./go.mod
+      - '**/*.go'
+    generates:
+      - ./dependency.png
